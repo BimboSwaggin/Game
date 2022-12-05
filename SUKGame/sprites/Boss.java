@@ -174,10 +174,10 @@ public class Boss implements DisplayableSprite, Health {
 		double deltaX = actual_delta_time * 0.001 * velocityX + 1;
 		double deltaY = actual_delta_time * 0.001 * velocityY;
 		boolean proximity = checkProximityWithOtherSprite(universe.getSprites(), deltaX, deltaY);
-		attackCollides = checkCollision(universe.getSprites(), deltaX, deltaY);
-		if (isAttacking) {
-			attacking(universe, deltaX, deltaY);
-		}
+//		attackCollides = checkCollision(universe.getSprites(), deltaX, deltaY);
+//		if (isAttacking) {
+//			attacking(universe, deltaX, deltaY);
+//		}
 		
 		
 		double relativeX = this.centerX - universe.getPlayer1().getCenterX();
