@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class GameUniverse implements Universe {
 
-	private long a = 0;
 	private boolean complete = false;	
 	private Background background = null;
 	private Background background2 = null;
@@ -30,11 +29,10 @@ public class GameUniverse implements Universe {
 		background2 = new SUKBackground2();
 		background2.setShiftY(0);
 
-		floor = new BarrierSprite(-800,-10,800,0,false,0,200);
-		wall = new BarrierSprite(0,0,4,1000,false,549,0 );
-		wall2 = new BarrierSprite(0,0,4,1000,false,-549,0 );
-		platform = new BarrierSprite(200,0,422,4,false,300,-35 );
-		platform2 = new BarrierSprite(200,0,420,4,false,-300,-32 );
+		floor = new BarrierSprite(-800,-10,800,0,true,0,200);
+		wall = new BarrierSprite(0,0,4,1000,true,549,0 );
+		wall2 = new BarrierSprite(0,0,4,1000,true,-549,0 );
+		
 		
 		backgrounds =new ArrayList<Background>();
 		backgrounds.add(background);
@@ -49,8 +47,8 @@ public class GameUniverse implements Universe {
 		sprites.add(floor);
 		sprites.add(wall);
 		sprites.add(wall2);
-		sprites.add(platform);
-		sprites.add(platform2);
+//		sprites.add(platform);
+//		sprites.add(platform2);
 		
 
 	}
@@ -114,7 +112,7 @@ public class GameUniverse implements Universe {
 	
 	public void update(KeyboardInput keyboard, long actual_delta_time) {
 		
-		a = actual_delta_time;
+
 
 		if (keyboard.keyDownOnce(27)) {
 			complete = true;

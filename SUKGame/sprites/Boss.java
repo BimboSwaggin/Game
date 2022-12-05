@@ -18,8 +18,8 @@ public class Boss implements DisplayableSprite, Health {
 	private static Image[] images;
 	private double centerX = 0;
 	private double centerY = 0;
-	private double width = 160;
-	private double height = 160;
+	private double width = 800;
+	private double height = 800;
 	private boolean dispose = false;	
 	boolean attackCollides = false;
 	boolean isAttacking = false;
