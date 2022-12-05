@@ -207,7 +207,7 @@ public class Boss implements DisplayableSprite, Health {
 		else {
 
 			
-			System.out.println(attackCollides);
+			//System.out.println(attackCollides);
 			if (elapsedTime-previousTime >= 1800) {
 				isAttacking = true;
 				previousTime = elapsedTime;
