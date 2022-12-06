@@ -13,7 +13,7 @@ import java.awt.event.MouseMotionAdapter;
 public class AnimationFrame extends JFrame {
 
 	final public static int FRAMES_PER_SECOND = 60;
-	final public static int SCREEN_HEIGHT = 600;
+	final public static int SCREEN_HEIGHT = 450;;
 	final public static int SCREEN_WIDTH = 800;
 
 	private int screenCenterX = SCREEN_WIDTH / 2;
@@ -209,7 +209,7 @@ public class AnimationFrame extends JFrame {
 
 	private void updateControls() {
 		
-		this.lblTop.setText(String.format("Time: %9.3f; HP: %d; BossHP: %d", elapsed_time / 1000.0,((Health)player1).getHealth(), ((Health)boss).getHealth()));
+		//this.lblTop.setText(String.format("Time: %9.3f; HP: %d; BossHP: %d", elapsed_time / 1000.0,((Health)player1).getHealth(), ((Health)boss).getHealth()));
 		this.lblBottom.setText(Integer.toString(universeLevel));
 		if (universe != null) {
 			this.lblBottom.setText(universe.toString());

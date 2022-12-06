@@ -18,8 +18,8 @@ public class Player implements DisplayableSprite, MovableSprite, Health{
 	private static Image[] images;	
 	private double centerX = 0;
 	private double centerY = 0;
-	private double width = 800;
-	private double height = 800;
+	private double width = 100;
+	private double height = width;
 	private boolean dispose = false;	
 	
 	//PIXELS PER SECOND PER SECOND

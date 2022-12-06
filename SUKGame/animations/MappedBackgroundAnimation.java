@@ -8,7 +8,7 @@ public class MappedBackgroundAnimation implements Animation {
 		universeCount++;
 		
 		if (universeCount == 1) {
-			return new GameUniverse();
+			return new OwensSpecialUniverse();
 		}
 		else {
 			this.current = null;
