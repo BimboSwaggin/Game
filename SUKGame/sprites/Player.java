@@ -263,7 +263,15 @@ public class Player implements DisplayableSprite, MovableSprite, Health{
 
 	@Override
 	public void update(Universe universe, KeyboardInput keyboard, long actual_delta_time) {
+		double leftOrRight = 5 * Math.signum(this.velocityX);
+		double deltaX = actual_delta_time * 0.001 * velocityX;
+		double deltaY = actual_delta_time * 0.001 * velocityY;
 
+		
+		// CHECK FOR POTENTIAL COLLISIONS
+		boolean collidingBarrierX = checkCollisionWithBarrier(universe.getSprites(), deltaX + leftOrRight, 0);
+		boolean collidingBarrierY = checkCollisionWithBarrier(universe.getSprites(), 0, deltaY);
+		boolean collidingBoss = checkCollisionWithBoss(universe.getSprites(), deltaX, deltaY);
 
 		boolean onGround = onGround(universe.getSprites());
 		elapsedTime += actual_delta_time;
@@ -320,15 +328,7 @@ public class Player implements DisplayableSprite, MovableSprite, Health{
 		
 //-------------------------------------------------------------------------------//
 		// CHECK FOR POTENTIAL MOVEMENT
-		double leftOrRight = 5 * Math.signum(this.velocityX);
-		double deltaX = actual_delta_time * 0.001 * velocityX;
-		double deltaY = actual_delta_time * 0.001 * velocityY;
-
 		
-		// CHECK FOR POTENTIAL COLLISIONS
-		boolean collidingBarrierX = checkCollisionWithBarrier(universe.getSprites(), deltaX + leftOrRight, 0);
-		boolean collidingBarrierY = checkCollisionWithBarrier(universe.getSprites(), 0, deltaY);
-		boolean collidingBoss = checkCollisionWithBoss(universe.getSprites(), deltaX, deltaY);
 		
 //-------------------------------------------------------------------------------//
 		// IF COLLIDING

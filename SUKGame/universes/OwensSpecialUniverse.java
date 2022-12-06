@@ -10,6 +10,7 @@ public class OwensSpecialUniverse implements Universe {
 	private DisplayableSprite boss = null;
 	private DisplayableSprite boss2 = null;
 	private ArrayList<DisplayableSprite> sprites = new ArrayList<DisplayableSprite>();
+	private ArrayList<DisplayableSprite> barriers = new ArrayList<DisplayableSprite>();
 	private double xCenter = 0;
 	private double yCenter = 0;
 	private static final double GROUND_Y = GameBackground.TILE_WIDTH * 2; 
@@ -26,9 +27,17 @@ public class OwensSpecialUniverse implements Universe {
 		Background background = new OwensSpecialBackground();
 		backgrounds.add(background);
 		
-		sprites.add(new Player(325,0,250,250));
-		sprites.add(new Player(-325,0,250,250));
-		sprites.add(new BarrierSprite(-400,0,400,0,true,0,200));
+		BarrierSprite barrier1 =  new BarrierSprite(-400,0,400,1,true,0,200);
+		BarrierSprite barrier2 = new BarrierSprite(0,0,1,450,true, -400,0);
+		BarrierSprite barrier3 = new BarrierSprite(0,0,1,450,true, 400,0);
+		barriers.add(barrier1); barriers.add(barrier2); barriers.add(barrier3);
+		
+		sprites.add(new Player(225,0,250,250));
+		sprites.add(new SawSprite(barriers));
+		sprites.add(barrier1);
+		sprites.add(barrier2);
+		sprites.add(barrier3);
+		
 	}
 
 	public double getScale() {
