@@ -468,7 +468,6 @@ public class Player implements DisplayableSprite, MovableSprite, Health{
 
 	@Override
 	public double getFacingDirection() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

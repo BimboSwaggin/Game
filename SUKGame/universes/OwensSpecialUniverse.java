@@ -32,7 +32,7 @@ public class OwensSpecialUniverse implements Universe {
 		BarrierSprite barrier3 = new BarrierSprite(0,0,1,450,true, 400,0);
 		barriers.add(barrier1); barriers.add(barrier2); barriers.add(barrier3);
 		
-		sprites.add(new Player(225,0,250,250));
+		sprites.add(new Player(225,0,100,100));
 		sprites.add(new SawSprite(barriers));
 		sprites.add(barrier1);
 		sprites.add(barrier2);
