@@ -226,9 +226,8 @@ public class SawSprite implements DisplayableSprite, MovableSprite, CollidingSpr
 			this.revolutions = (revolutions + velocityY) / 2;
 		}
 	}
-	
+	//TODO! start of update function 
 	public void update(Universe universe, KeyboardInput keyboard, long actual_delta_time) {
-		long elapsedFrames = (long) (elapsedTime / milliSecondsPerFrame);	
 		if (health < 0) {
 			dispose = true;
 		}
@@ -239,8 +238,7 @@ public class SawSprite implements DisplayableSprite, MovableSprite, CollidingSpr
 		double deltaX = actual_delta_time * 0.001 * velocityX;
 		double deltaY = actual_delta_time * 0.001 * velocityY;
 		boolean collidingBarrierX = checkCollisionWithBarrier(universe.getSprites(), deltaX, 0);
-		boolean collidingBarrierY = checkCollisionWithBarrier(universe.getSprites(), 0, deltaY);
-		boolean apostleHit;
+		boolean collidingBarrierY = checkCollisionWithBarrier(universe.getSprites(), 0, deltaY);	
 		
 		//q and e give the saw a boost every few seconds regardless of whether its on the floor or not. I decided to do this so the player could get over a ledge after losing they're momentum from hitting a wall
 		//this ability gives you more in control midair while not being an extremely powerful movement tool for going super fast.
@@ -328,21 +326,19 @@ public class SawSprite implements DisplayableSprite, MovableSprite, CollidingSpr
 		this.elapsedFrames +=  (frameDifference);
 		currentFrame = (int) Math.abs(this.elapsedFrames % FRAMES);		
 		
-		}
+	}
+	//TODO! end of update function!
 	
 	@Override
-	public double getFacingDirection() {
-		// TODO Auto-generated method stub
+	public double getFacingDirection() {		
 		return 0;
 	}
 	@Override
 	public boolean isHit(boolean b) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	@Override
 	public void setDontMove(boolean DontMove) {
-		// TODO Auto-generated method stub
 		
 	}
 }

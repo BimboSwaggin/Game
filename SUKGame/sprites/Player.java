@@ -269,9 +269,9 @@ public class Player implements DisplayableSprite, MovableSprite, Health{
 
 		
 		// CHECK FOR POTENTIAL COLLISIONS
-		boolean collidingBarrierX = checkCollisionWithBarrier(universe.getSprites(), deltaX + leftOrRight, 0);
+		boolean collidingBarrierX = checkCollisionWithBarrier(universe.getSprites(), deltaX, 0);
 		boolean collidingBarrierY = checkCollisionWithBarrier(universe.getSprites(), 0, deltaY);
-		boolean collidingBoss = checkCollisionWithBoss(universe.getSprites(), deltaX, deltaY);
+		boolean collidingBoss = false;//checkCollisionWithBoss(universe.getSprites(), deltaX, deltaY);
 
 		boolean onGround = onGround(universe.getSprites());
 		elapsedTime += actual_delta_time;
@@ -359,13 +359,7 @@ public class Player implements DisplayableSprite, MovableSprite, Health{
 			
 			this.velocityY -= 1;
 		}
-		if (collidingBarrierX == true) {
-			this.velocityX = 0;
-			}
-			
-		if (collidingBarrierY) {
-			this.velocityY = 0;
-		}
+		
 		
 //-------------------------------------------------------------------------------//		
 		// IF NOT TOUCHING GROUND
@@ -375,10 +369,22 @@ public class Player implements DisplayableSprite, MovableSprite, Health{
 		} else {
 			this.velocityY = this.velocityY + ACCCELERATION_Y * 0.001 * actual_delta_time;
 		}
-		
+		if (collidingBarrierX) {
+			this.velocityX = 0;
+		}
+		else {
+			this.centerX += actual_delta_time * 0.001 * velocityX;
+		}
+			
+		if (collidingBarrierY) {
+			this.velocityY = 0;
+		}
+		else {
+			this.centerY += actual_delta_time * 0.001 * velocityY;
+		}
 		// CALCULATE MOVEMENT
-		this.centerX += actual_delta_time * 0.001 * velocityX;
-		this.centerY += actual_delta_time * 0.001 * velocityY;
+		
+		
 		this.hit = false;
 	
 		// DISPOSE IF DEAD
@@ -408,6 +414,21 @@ public class Player implements DisplayableSprite, MovableSprite, Health{
 			}		
 		return colliding;	
 		}
+//	private boolean checkCollisionWithBarrier(ArrayList<DisplayableSprite> sprites, double deltaX, double deltaY) {
+//
+//		//deltaX and deltaY represent the potential change in position
+//		boolean colliding = false;
+//		
+//		for (DisplayableSprite sprite : sprites) {
+//			if (sprite instanceof BarrierSprite) {
+//				if (CollisionDetection.pixelBasedOverlaps(this,sprite , deltaX, deltaY)) {
+//					colliding = true;
+//					break;					
+//				}
+//			}
+//		}		
+//		return colliding;		
+//	}
 	private boolean checkCollisionWithBoss(ArrayList<DisplayableSprite> sprites, double deltaX, double deltaY) {
 
 		//deltaX and deltaY represent the potential change in position
